@@ -14,7 +14,7 @@
 				for (var i = 0; i < json.length; i++){
 					id = json[i]["_id"];
 					$.getJSON("/sindan/" + id, {name: "{{name}}"}, function(json) {
-						html = '<div class="result"><div class="result_header"><div class="shindan_title"><h4><a href="' + json.url + '" target="_blank" title="">' + json.title + '</a></h4></div></div><div class="result_contents"><p>' + json.result + '</p></div><div class="tweet_area pull-right"><p>ここにツイートボタンが表示されるよ</p></div><div class="line"><hr></div></div>'
+						html = '<div class="result"><div class="result_header"><div class="shindan_title"><h4><a href="' + json.url + '" target="_blank" title="">' + json.title + '</a></h4></div></div><div class="result_contents"><p>' + json.result + '</p></div><div class="tweet_area pull-right"><a target="_blank" href="https://twitter.com/intent/tweet?text=' + json.result + '&url=' + json.url + '">TW</a> </div><div class="line"><hr></div></div>'
 						$("#results_area").append(html);
 					});
 				}

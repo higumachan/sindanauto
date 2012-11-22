@@ -24,7 +24,6 @@ def hot():
 def sindan(id):
     name = request.args["name"];
     result = main.try_sindan(id, name);
-    result["result"] = result["result"].replace(" ", "<br>")
     return json.dumps(result);
 
 if __name__ == "__main__":
