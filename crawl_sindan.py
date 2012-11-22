@@ -21,7 +21,7 @@ def get_sindan(bs):
         print tag;
         id = int(tag["href"][1:]);
         title = tag.text;
-        result.append({"_id": id, "title": title, "datetime": datetime.datetime.now()});
+        result.append({"_id": id, "title": title});
     return result
 
 

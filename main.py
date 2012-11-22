@@ -8,13 +8,12 @@ SINDAN_URL = "http://shindanmaker.com/";
 
 DEFAULT_NAME = "higumachan725"
 
-def try_sindan(sindan, name):
+def try_sindan(id, name):
     post_data = urllib.urlencode({"u": name});
-    url = SINDAN_URL + str(sindan["_id"]);
+    url = SINDAN_URL + str(id);
     html = urllib2.urlopen(url, post_data).read();
     bs = BeautifulSoup(html);
-    result = bs.find(attrs={"class": "result"}).text;
-    print sindan["_id"], sindan["title"]
+    result = {"result": bs.find(attrs={"class": "result"}).text, "title": bs.find("title").text, "url": SINDAN_URL + str(id)};
 
     return result
 
