@@ -15,6 +15,11 @@ def index():
 def result():
     return render_template("result.html", name=request.args["name"]);
 
+
+@app.route("/test", methods=["GET"])
+def test():
+    return render_template("test.html");
+
 @app.route("/hot")
 def hot():
     result = crawl_sindan.crawl();

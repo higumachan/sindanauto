@@ -10,18 +10,24 @@
 		<script src="/static/js/jquery-1.8.3.min.js" type="text/javascript"></script>
 
 		<script type="text/javascript">
-			$(document).ready(function () {
-				$.getJSON("/hot", function(json) {
-					console.log(json);
-					for (var i = 0; i < json.length; i++){
-						id = json[i]["_id"];
-						$.getJSON("/sindan/" + id, {name: "{{name}}"}, function(json) {
-							html = '<div class="result"><div class="result_header"><div class="shindan_title"><h4><a href="' + json.url + '" target="_blank" title="">' + json.title + '</a></h4></div></div><div class="result_contents"><p>' + json.result + '</p></div><div class="tweet_area pull-right"><a target="_blank" href="https://twitter.com/intent/tweet?text=' + json.result + '&url=' + json.url + '"><button class="btn-primary tweet_btn"><img src="{{ url_for('static', filename='img/twitter_resize.png') }}"> 結果をつぶやく</button></a></div><p>　</p></div>'
-							$("#results_area").append(html);
-						});
-					}
+			$(document).ready(function () { $.getJSON("/hot", function(json) { console.log(json); 
+				for (var i = 0; i < json.length; i++){
+					var id = json[i]["_id"];
+					$.getJSON("/sindan/" + id, {name: "{{name}}"}, function(json) {
+						var html = '<div class="result"><div class="result_header"><div class="shindan_title"><h4><a href="' + json.url + '" target="_blank" title="">' + json.title + '</a></h4></div></div><div class="result_contents"><p>' + json.result + '</p></div><div class="tweet_area pull-right"><a target="_blank" href="https://twitter.com/intent/tweet?text=' + json.result + '&url=' + json.url + '"><button class="btn-primary tweet_btn"><img src="{{ url_for('static', filename='img/twitter_resize.png') }}"> 結果をつぶやく</button></a></div><p>　</p></div>'
+						$("#results_area").append(html);
+					});
+					
+				}
+				/*var left = document.getElementById("left");
+				for (var i = 0 ; i < 1; i++){
+					var html = '<script type="text\/javascript"><!--amazon_ad_tag = "higumachan-22"; amazon_ad_width = "160"; amazon_ad_height = "600";--><\/script><script type="text\/javascript" src="http:\/\/www.assoc-amazon.jp\/s\/ads.js"><\/script>';
+					var elem = document.createElement("div");
+					elem.innerHTML = html;
+					left.appendChild(elem);
+				}
+				*/
 				});
-				$("#results_area").append
 			});
 		</script>
   </head>
@@ -45,11 +51,17 @@
 
 		<div class="row-fluid">
 			<div class="span2" id="left">
+				<script type="text/javascript"><!--
+				amazon_ad_tag = "higumachan-22"; amazon_ad_width = "160"; amazon_ad_height = "600";//--></script>
+				<script type="text/javascript" src="http://www.assoc-amazon.jp/s/ads.js"></script>
 			</div>
 
 			<div class="span8" id="results_area"></div>
 
 			<div class="span2" id="right">
+				<script type="text/javascript"><!--
+				amazon_ad_tag = "higumachan-22"; amazon_ad_width = "160"; amazon_ad_height = "600";//--></script>
+				<script type="text/javascript" src="http://www.assoc-amazon.jp/s/ads.js"></script>
 			</div>
 		</div>
 </body>
