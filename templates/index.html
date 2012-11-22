@@ -20,30 +20,31 @@
 
 														</script>
 
-  </head>
-<body>
-
+	</head>
+	
+	<body>
 		<div class="hero-unit">
 			<a href="http://shindan.contents4you.com/"><img src="{{ url_for('static', filename='img/logo.png') }}"></a>
-			
-				</div>
+		</div>
 
-		<div class="">
-			<div class="">
-				<div class="ninja_onebutton">
-					<script type="text/javascript">
-					//<![CDATA[
-					(function(d){
-						if(typeof(window.NINJA_CO_JP_ONETAG_BUTTON_59e368a8fd3a2b167a9a65deb445fe9e)=='undefined'){
-									document.write("<sc"+"ript type='text\/javascript' src='http:\/\/omt.shinobi.jp\/b\/59e368a8fd3a2b167a9a65deb445fe9e'><\/sc"+"ript>");
-						}else{
-									window.NINJA_CO_JP_ONETAG_BUTTON_59e368a8fd3a2b167a9a65deb445fe9e.ONETAGButton_Load();}
-					})(document);
-					//]]>
-					</script><span class="ninja_onebutton_hidden" style="display:none;"></span><span style="display:none;" class="ninja_onebutton_hidden"></span>
-				</div>
+		<div class="ninja_onebutton">
+			<script type="text/javascript">
+			//<![CDATA[
+			(function(d){
+				if(typeof(window.NINJA_CO_JP_ONETAG_BUTTON_59e368a8fd3a2b167a9a65deb445fe9e)=='undefined'){
+							document.write("<sc"+"ript type='text\/javascript' src='http:\/\/omt.shinobi.jp\/b\/59e368a8fd3a2b167a9a65deb445fe9e'><\/sc"+"ript>");
+				}else{
+							window.NINJA_CO_JP_ONETAG_BUTTON_59e368a8fd3a2b167a9a65deb445fe9e.ONETAGButton_Load();}
+			})(document);
+			//]]>
+			</script><span class="ninja_onebutton_hidden" style="display:none;"></span><span style="display:none;" class="ninja_onebutton_hidden"></span>
+		</div>
 				
+		<div class="row-fluid">
+			<div class="span2 pull-left" id="left">
+			</div>
 
+			<div class="span8" id="main_area">
 				<h2>About</h2>
 				<hr>
 				<p id="about">
@@ -54,15 +55,17 @@
 				<form id="input_name_area" method="GET" action="./result">
 					<fieldset>
 						<legend><h2>診断を行う</h2></legend>
-						<div class="row-fluid">
-						<div class="span4 offset4">
+						<div id="form-area">
 							<input type="text" id="input_name" name="name" class="input-xlarge"  placeholder="名前を入れてください">
 							<button type="submit" class="btn-primary pull-right">診断する</button>
-						</div>
 						</div>
 					</fieldset>
 				</form>
 			</div>
+			
+			<div class="span2 pull-right" id="right">
+			</div>
+
 		</div>
-</body>
+	</body>
 </html>

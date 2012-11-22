@@ -46,3 +46,24 @@ h4 {
 .result_contents p{
 	text-align: left;
 }
+
+#left {
+	z-index: 1;
+}
+
+#right {
+	z-index: 1;
+}
+
+#result_contents{
+	z-index: 10;
+}
+
+
+#form-area{
+	width: 400px;
+	margin: auto;
+	padding: auto;
+	text-align: center;
+}
+
