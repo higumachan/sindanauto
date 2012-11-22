@@ -1,33 +1,34 @@
 <!DOCTYPE html>
 <html lang="jp">
   <head>
-			<title>おまとめーかー</title>
-    <!-- Bootstrap -->
+		<title>おまとめーかー</title>
+   
+	 <!-- Bootstrap -->
     <link href="/static/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="/static/css/mystyle.css" rel="stylesheet" media="screen">
-	<script src="/static/js/jquery-1.8.3.min.js" type="text/javascript"></script>
+	
+		<script src="/static/js/jquery-1.8.3.min.js" type="text/javascript"></script>
 
-	<script type="text/javascript">
-		$(document).ready(function () {
-			$.getJSON("/hot", function(json) {
-				console.log(json);
-				for (var i = 0; i < json.length; i++){
-					id = json[i]["_id"];
-					$.getJSON("/sindan/" + id, {name: "{{name}}"}, function(json) {
-						html = '<div class="result"><div class="result_header"><div class="shindan_title"><h4><a href="' + json.url + '" target="_blank" title="">' + json.title + '</a></h4></div></div><div class="result_contents"><p>' + json.result + '</p></div><div class="tweet_area pull-right"><a target="_blank" href="https://twitter.com/intent/tweet?text=' + json.result + '&url=' + json.url + '">TW</a> </div><div class="line"><hr></div></div>'
-						$("#results_area").append(html);
-					});
-				}
+		<script type="text/javascript">
+			$(document).ready(function () {
+				$.getJSON("/hot", function(json) {
+					console.log(json);
+					for (var i = 0; i < json.length; i++){
+						id = json[i]["_id"];
+						$.getJSON("/sindan/" + id, {name: "{{name}}"}, function(json) {
+							html = '<div class="result"><div class="result_header"><div class="shindan_title"><h4><a href="' + json.url + '" target="_blank" title="">' + json.title + '</a></h4></div></div><div class="result_contents"><p>' + json.result + '</p></div><div class="tweet_area pull-right"><a target="_blank" href="https://twitter.com/intent/tweet?text=' + json.result + '&url=' + json.url + '"><button class="btn-primary tweet_btn"><img src="{{ url_for('static', filename='img/twitter_resize.png') }}"> 結果をつぶやく</button></a></div><p>　</p></div>'
+							$("#results_area").append(html);
+						});
+					}
+				});
+				$("#results_area").append
 			});
-			$("#results_area").append
-		});
-	</script>
+		</script>
   </head>
 <body>
-	<div class="container">
 
 		<div class="hero-unit">
-			<h1>おまとめーかー</h1>
+			<a href="http://shindan.contents4you.com/"><img src="{{ url_for('static', filename='img/logo.png') }}"></a>
 		</div>
 
 		<div class="row-fluid">
@@ -39,6 +40,5 @@
 			<div class="span2" id="right">
 			</div>
 		</div>
-	</div>
 </body>
 </html>

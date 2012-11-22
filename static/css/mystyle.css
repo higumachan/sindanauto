@@ -1,11 +1,31 @@
-.wrap_area{
-	background-color: #dddddd;
+*{
+
 }
 
-.area1{
-	background-color: #ffaaaa;
+.hero-unit{
+	background-image: url("../img/pattern_4.png");
 }
 
-.area2{
-	background-color: #aaffaa;
+h4 {
+	font-size: 2em ;
+	line-height: 1em;
 }
+
+.result_contents{
+	font-size: 1.5em;
+	line-height: 1.1em;
+}
+
+.tweet_btn{
+	font-size: 0.4em;
+	margin-bottom: 20px;
+}
+
+.result{
+	background-color: #ffffff;
+	border: 10px solid #32ccff;
+	margin-bottom: 10px;
+	padding: 5px;
+	border-radius: 1em;
+}
+
