@@ -1,13 +1,17 @@
 import pymongo
+import urllib
 import urllib2
 import datetime
-import BeautifulSoup
+from BeautifulSoup import BeautifulSoup
 
 SINDAN_URL = "http://shindanmaker.com/";
 
-def try_sindan(sindan):
+DEFAULT_NAME = "higumachan725"
+
+def try_sindan(sindan, name):
+    post_data = urllib.urlencode({"u": name});
     url = SINDAN_URL + str(sindan["_id"]);
-    html = urllib2.urlopen(url).read();
+    html = urllib2.urlopen(url, post_data).read();
     bs = BeautifulSoup(html);
     result = bs.find(attrs={"class": "result"}).text;
     print sindan["_id"], sindan["title"]
@@ -16,14 +20,13 @@ def try_sindan(sindan):
 
 
 if __name__ == "__main__":
-    conn = pymongo.connection();
+    conn = pymongo.Connection();
     db = conn.autosindan;
 
     now = datetime.datetime.now();
-    now.replace(houre=0, minuetus=0);
-    sindans = db.sindans.find({"datetime": {"$gt": now, "$lt": now + datetime.timedelta(days=1));
-
+    
+    sindans = db.sindans.find();
     for sindan in sindans:
-        result = try_sindan(sindan);
+        result = try_sindan(sindan, DEFAULT_NAME);
         print result
 

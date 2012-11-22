@@ -15,19 +15,19 @@ def crawl(mode="hot"):
     return sindans;
 
 def get_sindan(bs):
-    result = {};
-    tags = bs.findAll("a", attrs={"class": "title"})
+    result = [];
+    tags = bs.findAll("a", attrs={"class": "list_title"})
     for tag in tags:
         print tag;
         id = int(tag["href"][1:]);
-        title = tag.text();
+        title = tag.text;
         result.append({"_id": id, "title": title, "datetime": datetime.datetime.now()});
     return result
 
 
 if __name__ == "__main__":
     sindans = crawl();
-    conn = pymongo.connection();
+    conn = pymongo.Connection();
     db = conn["autosindan"];
     db.sindans.insert(sindans);
 
