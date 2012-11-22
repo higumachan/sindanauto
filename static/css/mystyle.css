@@ -1,5 +1,7 @@
 *{
-
+	margin: auto;
+	padding: auto;
+	text-align: center;
 }
 
 .hero-unit{
@@ -28,4 +30,13 @@ h4 {
 	padding: 5px;
 	border-radius: 1em;
 }
+
+#about{
+	font-size: 1.3em;
+}
+
+#input_name_area{
+	margin-top: 50px;
+}
+
 
