@@ -14,6 +14,9 @@
 				for (var i = 0; i < json.length; i++){
 					var id = json[i]["_id"];
 					$.getJSON("/sindan/" + id, {name: "{{name}}"}, function(json) {
+						if (json.is_daychange){
+							json.title += "(結果日替わり)"
+						}
 						var html = '<div class="result"><div class="result_header"><div class="shindan_title"><h4><a href="' + json.url + '" target="_blank" title="">' + json.title + '</a></h4></div></div><div class="result_contents"><p>' + json.result + '</p></div><div class="tweet_area pull-right"><a target="_blank" href="https://twitter.com/intent/tweet?text=' + json.result + '&url=' + json.url + '"><button class="btn-primary tweet_btn"><img src="{{ url_for('static', filename='img/twitter_resize.png') }}"> 結果をつぶやく</button></a></div><p>　</p></div>'
 						$("#results_area").append(html);
 					});

@@ -1,3 +1,5 @@
+#coding: utf-8
+
 import pymongo
 import urllib
 import urllib2
@@ -13,7 +15,8 @@ def try_sindan(id, name):
     url = SINDAN_URL + str(id);
     html = urllib2.urlopen(url, post_data).read();
     bs = BeautifulSoup(html);
-    result = {"result": bs.find(attrs={"class": "result"}).text, "title": bs.find("title").text, "url": SINDAN_URL + str(id)};
+    is_daychange = bs.find(attrs={"class": "shindandescription"}).text.find(u"日替わり") != -1;
+    result = {"result": bs.find(attrs={"class": "result"}).text, "title": bs.find("title").text, "url": SINDAN_URL + str(id), "is_daychange": is_daychange};
 
     return result
 

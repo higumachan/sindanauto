@@ -22,6 +22,10 @@ def test():
 
 @app.route("/hot")
 def hot():
+    if (request.args.has_key("mode")):
+        mode = request.args["mode"];
+    else:
+        mode = "hot";
     result = crawl_sindan.crawl();
     return json.dumps(result);
 
